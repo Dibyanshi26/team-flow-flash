@@ -14,7 +14,62 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      reactions: {
+        Row: {
+          created_at: string
+          emoji: string
+          id: string
+          standup_id: string
+        }
+        Insert: {
+          created_at?: string
+          emoji: string
+          id?: string
+          standup_id: string
+        }
+        Update: {
+          created_at?: string
+          emoji?: string
+          id?: string
+          standup_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "reactions_standup_id_fkey"
+            columns: ["standup_id"]
+            isOneToOne: false
+            referencedRelation: "standups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      standups: {
+        Row: {
+          author_name: string
+          blockers: string
+          created_at: string
+          id: string
+          today: string
+          yesterday: string
+        }
+        Insert: {
+          author_name: string
+          blockers?: string
+          created_at?: string
+          id?: string
+          today: string
+          yesterday: string
+        }
+        Update: {
+          author_name?: string
+          blockers?: string
+          created_at?: string
+          id?: string
+          today?: string
+          yesterday?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
