@@ -14,6 +14,24 @@ export type Database = {
   }
   public: {
     Tables: {
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name: string
+          id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string
+          id?: string
+        }
+        Relationships: []
+      }
       reactions: {
         Row: {
           created_at: string
@@ -50,6 +68,7 @@ export type Database = {
           created_at: string
           id: string
           today: string
+          user_id: string | null
           yesterday: string
         }
         Insert: {
@@ -58,6 +77,7 @@ export type Database = {
           created_at?: string
           id?: string
           today: string
+          user_id?: string | null
           yesterday: string
         }
         Update: {
@@ -66,6 +86,7 @@ export type Database = {
           created_at?: string
           id?: string
           today?: string
+          user_id?: string | null
           yesterday?: string
         }
         Relationships: []
